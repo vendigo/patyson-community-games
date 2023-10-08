@@ -23,7 +23,7 @@ Level info should be loaded with request to /level.json
 
 ### Submitting results
 
-See calculator\src\lib\patysonClient.ts
+See https://github.com/vendigo/patyson-community-games/blob/master/calculator/src/lib/patysonClient.ts
 
 ```typescript
 const urlParams = new URLSearchParams(window.location.search).toString()
