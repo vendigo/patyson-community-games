@@ -1,0 +1,13 @@
+.keyboard {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
