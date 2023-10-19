@@ -1,6 +1,4 @@
 import './HistoryRow.css';
-import bullIcon from "../assets/bullIcon.png";
-import cowIcon from "../assets/cowIcon.png";
 
 export function HistoryRow({number, bulls, cows}) {
 
@@ -11,22 +9,22 @@ export function HistoryRow({number, bulls, cows}) {
 
     function getClass(idx, num, isBull) {
         if (isBull) {
-            return idx < num ? "": "invisible"
+            return idx < num ? "" : "invisible"
         } else {
-            return idx < (number.length - num) ? "invisible": ""
+            return idx < (number.length - num) ? "invisible" : ""
         }
     }
 
     return (
         <div className="historyRow">
             <div className="bulls">
-                {icons(bulls, bullIcon, true)}
+                {icons(bulls, "/assets/bullIcon.png", true)}
             </div>
             <div>
                 {number}
             </div>
             <div className="cows">
-                {icons(cows, cowIcon, false)}
+                {icons(cows, "/assets/cowIcon.png", false)}
             </div>
         </div>
     )
