@@ -3,24 +3,30 @@ import {Header} from "./header/Header.jsx";
 import {Display} from "./display/Display.jsx";
 import {Keyboard} from "./keyboard/Keyboard.jsx";
 import {History} from "./history/History.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {getWinMessage, loadLevel} from "./PatysonClient.js";
 
 function App() {
     const [currentNumber, setCurrentNumber] = useState("")
     const [history, setHistory] = useState([])
-    const answer = "987"
+    const [level, setLevel] = useState({number: "000"})
+    const [winMessage, setWinMessage] = useState(null)
 
-    if (currentNumber.length === answer.length) {
-        checkWin()
-        addHistory()
-        setCurrentNumber("")
-    }
+    useEffect(() => {
+        loadLevel().then(level => setLevel(level));
+    }, []);
 
-    function checkWin() {
+    const answer = level.number
+
+    if (!winMessage && currentNumber.length === answer.length) {
         if (currentNumber === answer) {
-            console.log('Win!')
+            getWinMessage().then(winMessage => setWinMessage(winMessage))
+        } else {
+            addHistory()
+            setCurrentNumber("")
         }
     }
+
     function addHistory() {
         let bulls = 0
         let cows = 0
@@ -39,11 +45,14 @@ function App() {
         setHistory(newHistory)
     }
 
+    const controls = winMessage ? <h2>{winMessage}</h2> :
+        <Keyboard currentNumber={currentNumber} setCurrentNumber={setCurrentNumber}/>
+
     return (
         <>
             <Header/>
             <Display currentNumber={currentNumber} length={answer.length}/>
-            <Keyboard currentNumber={currentNumber} setCurrentNumber={setCurrentNumber}/>
+            {controls}
             <History history={history}/>
         </>
     )

@@ -4,8 +4,9 @@ Repository for puzzles created by community of Patyson.
 
 ## Examples:
 
-- calculator - created with Svelte
-- imageSudoku - created with Phaser.js
+- [calculator](https://github.com/vendigo/patyson-community-games/tree/master/calculator) - created with Svelte
+- [imageSudoku](https://github.com/vendigo/patyson-community-games/tree/master/imageSudoku) - created with Phaser.js
+- [bullsAndCows](https://github.com/vendigo/patyson-community-games/tree/master/bullsAndCows) - created with React
 
 ## Integration
 

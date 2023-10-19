@@ -4,6 +4,10 @@
     font-size: 2em;
 }
 
-.icon {
+.historyRow img {
     width: 1.5em;
+}
+
+.invisible {
+    visibility: hidden;
 }
