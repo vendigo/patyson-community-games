@@ -1,7 +1,7 @@
 import './Key.css'
 
-export function Key({num}) {
+export function Key({num, onKeyClick}) {
     return (
-        <button>{num}</button>
+        <button onClick={() => onKeyClick(num)}>{num}</button>
     )
 }

@@ -1,7 +1,9 @@
 import './NumberSection.css'
 
-export function NumberSection() {
+export function NumberSection({value}) {
     return (
-        <div className="numberSection"></div>
+        <div className="numberSection">
+            {value}
+        </div>
     )
 }

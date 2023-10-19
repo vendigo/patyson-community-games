@@ -15,7 +15,7 @@ export function HistoryRow({number, bulls, cows}) {
                 {icons(bulls, bullIcon)}
             </div>
             <div>
-                <span>{number}</span>
+                {number}
             </div>
             <div>
                 {icons(cows, cowIcon)}
