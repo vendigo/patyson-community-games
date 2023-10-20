@@ -18,13 +18,13 @@ export function HistoryRow({number, bulls, cows}) {
     return (
         <div className="historyRow">
             <div className="bulls">
-                {icons(bulls, "/assets/bullIcon.png", true)}
+                {icons(bulls, "assets/bullIcon.png", true)}
             </div>
             <div>
                 {number}
             </div>
             <div className="cows">
-                {icons(cows, "/assets/cowIcon.png", false)}
+                {icons(cows, "assets/cowIcon.png", false)}
             </div>
         </div>
     )
