@@ -6,7 +6,7 @@ import {History} from "./history/History.jsx";
 import {useEffect, useState} from "react";
 import {getWinMessage, loadLevel} from "./PatysonClient.js";
 
-function App() {
+export default function App() {
     const [currentNumber, setCurrentNumber] = useState("")
     const [history, setHistory] = useState([])
     const [level, setLevel] = useState({number: "000"})
@@ -40,22 +40,18 @@ function App() {
             }
         }
 
-        const newHistory = [...history, {bulls, cows, number: currentNumber}]
-
-        setHistory(newHistory)
+        setHistory([{bulls, cows, number: currentNumber}, ...history])
     }
-
-    const controls = winMessage ? <h2>{winMessage}</h2> :
-        <Keyboard currentNumber={currentNumber} setCurrentNumber={setCurrentNumber}/>
 
     return (
         <>
             <Header/>
             <Display currentNumber={currentNumber} length={answer.length}/>
-            {controls}
-            <History history={history}/>
+            {winMessage ? <h2>{winMessage}</h2> :
+                (<>
+                    <Keyboard currentNumber={currentNumber} setCurrentNumber={setCurrentNumber}/>
+                    <History history={history}/>
+                </>)}
         </>
     )
 }
-
-export default App
