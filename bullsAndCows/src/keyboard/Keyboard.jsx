@@ -1,19 +1,24 @@
 import './Keyboard.css'
 
-export function Keyboard({currentNumber, setCurrentNumber}) {
+export function Keyboard({currentNumber, answerLength, setCurrentNumber, onNumberCompleted}) {
     const nums = [...Array(10).keys()]
 
-    function onKeyClick(num) {
+    function handleClick(num) {
         if (currentNumber.includes(num)) {
             return
         }
 
-        setCurrentNumber(currentNumber + num)
+        const nextCurrentNumber = currentNumber + num
+        setCurrentNumber(nextCurrentNumber)
+
+        if (nextCurrentNumber.length === answerLength) {
+            onNumberCompleted(nextCurrentNumber)
+        }
     }
 
     return (
         <div className="keyboard">
-            {nums.map(num => <button key={num} onClick={() => onKeyClick(num)}>{num}</button>)}
+            {nums.map(num => <button key={num} onClick={() => handleClick(num)}>{num}</button>)}
         </div>
     )
 }
