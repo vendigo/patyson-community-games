@@ -1,0 +1,17 @@
+.row {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2em;
+    gap: 0.2em;
+}
+
+hr {
+    border: 2px solid black;
+    width: 100%;
+}
+
+.sign {
+    font-size: 1.2em;
+    padding: 0.1em;
+    text-align: center;
+}

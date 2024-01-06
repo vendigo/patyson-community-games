@@ -1,0 +1,8 @@
+.cell {
+    background: #e3e3e0;
+    border-radius: 5px;
+    width: min(11vw, 1.5em);
+    height: min(11vw, 1.5em);
+    font-size: 1em;
+    text-align: center;
+}
